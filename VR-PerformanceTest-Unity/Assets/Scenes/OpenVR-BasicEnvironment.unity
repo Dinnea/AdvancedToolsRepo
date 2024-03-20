@@ -188,6 +188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnTheMeshes (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1954867702252927304, guid: 7bb532c76429800449d10bdf64749a4c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4829474195364121018, guid: 7bb532c76429800449d10bdf64749a4c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -255,6 +260,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpawnTheMeshes (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954867702252927304, guid: 7bb532c76429800449d10bdf64749a4c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4829474195364121018, guid: 7bb532c76429800449d10bdf64749a4c,
         type: 3}
@@ -925,6 +935,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SpawnTheMeshes (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954867702252927304, guid: 7bb532c76429800449d10bdf64749a4c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4829474195364121018, guid: 7bb532c76429800449d10bdf64749a4c,
         type: 3}
@@ -2707,6 +2722,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5895289914390127647, guid: 7bb532c76429800449d10bdf64749a4c,
+        type: 3}
+      propertyPath: _rows
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5895289914390127647, guid: 7bb532c76429800449d10bdf64749a4c,
+        type: 3}
+      propertyPath: _columns
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
