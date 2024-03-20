@@ -27,7 +27,7 @@ public class MeshSpawner : MonoBehaviour
         {
             for(int y = 0; y < _rows; y++)
             {
-                Instantiate(_grid.GetCellContent(x, y), _grid.GetCellPositionInWorld(x, y), Quaternion.identity);
+                Instantiate(_grid.GetCellContent(x, y), _grid.GetCellPositionInWorld(x, y), Quaternion.identity, transform);
                 
             }
         }
