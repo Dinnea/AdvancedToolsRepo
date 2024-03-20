@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4829474195364121018}
-  - component: {fileID: 8720119678525063668}
+  - component: {fileID: 5895289914390127647}
   m_Layer: 0
   m_Name: SpawnTheMeshes
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8720119678525063668
+--- !u!114 &5895289914390127647
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,11 +41,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1954867702252927304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f3094cb5c42dc34b8ee1f6ebec8803f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7754758bae8c1ac46bebc24c3ec2b769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshToSpawn: {fileID: 1075382040968209164, guid: 81ed0e3c951267f428324b85ff87c958,
+  _columns: 50
+  _rows: 50
+  _cellSize: 0.2
+  _scale: 0.1
+  _origin: {x: 0, y: 0, z: 0}
+  _meshToSpawn: {fileID: 1075382040968209164, guid: 81ed0e3c951267f428324b85ff87c958,
     type: 3}
-  gridWidth: 10
-  gridHeight: 2
-  meshNumber: 0
+  _material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}

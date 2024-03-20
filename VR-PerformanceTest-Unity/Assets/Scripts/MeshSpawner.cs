@@ -1,38 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[ExecuteInEditMode]
+
 public class MeshSpawner : MonoBehaviour
 {
-    [SerializeField] Mesh meshToSpawn;
-    GameObject baseObject;
-    [SerializeField] int gridWidth;
-    [SerializeField] int gridHeight;
-    [SerializeField] float gridCellSize;
-    [SerializeField] int meshNumber;
-    int spawnedNr;
+    [SerializeField] int _columns = 20;
+    [SerializeField] int _rows = 15;
+    [SerializeField] float _cellSize = 5;
+    [SerializeField] float _scale;
+    [SerializeField] Vector3 _origin;
 
-    //spawn in 2D grid (XY)
+    [SerializeField] Mesh _meshToSpawn;
+    [SerializeField] Material _material;
+    private GridXY<GameObject> _grid;
+
     private void Awake()
     {
-        baseObject = Resources.Load("TestMeshObject", typeof(GameObject)) as GameObject;
-        baseObject.GetComponent<MeshFilter>().mesh = meshToSpawn;
+        _origin = transform.position;
+        _grid = new GridXY<GameObject>(_columns, _rows, _cellSize, _origin, (GridXY<GameObject> g, int x, int z) => createTemplateGameObject());
+        generateGridVisual();
     }
-    private void Start()
+
+    private void generateGridVisual()
     {
-        SpawnGrid();
-    }
-    void SpawnGrid()
-    {
-        for (int i = 0; i < gridWidth; i++)
+        for (int x = 0; x < _columns; x++)
         {
-            for (int j = 0; j < gridHeight; j++)
+            for(int y = 0; y < _rows; y++)
             {
-                spawnedNr++;
-                Instantiate(baseObject);
+                Instantiate(_grid.GetCellContent(x, y), _grid.GetCellPositionInWorld(x, y), Quaternion.identity);
                 
             }
         }
     }
-    
+
+    private GameObject createTemplateGameObject()
+    {
+        GameObject newGameObject = new GameObject("TestVisual");
+        MeshFilter tempFilter = newGameObject.AddComponent<MeshFilter>();
+        MeshRenderer tempRenderer = newGameObject.AddComponent<MeshRenderer>();
+        tempRenderer.material = _material;
+        tempFilter.mesh = _meshToSpawn;
+        newGameObject.transform.localScale = new Vector3(_scale, _scale, _scale);
+        return newGameObject;
+    }
+
 }
