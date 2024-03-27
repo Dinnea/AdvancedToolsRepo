@@ -6,7 +6,7 @@ public class MeshSpawner : MonoBehaviour
 {
     [SerializeField] int _columns = 20;
     [SerializeField] int _rows = 15;
-    [SerializeField] float _cellSize = 5;
+    [SerializeField] float _cellSize = -5;
     [SerializeField] float _scale;
     [SerializeField] Vector3 _origin;
 
