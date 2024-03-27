@@ -2732,18 +2732,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5895289914390127647, guid: 7bb532c76429800449d10bdf64749a4c,
         type: 3}
-      propertyPath: _rows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5895289914390127647, guid: 7bb532c76429800449d10bdf64749a4c,
-        type: 3}
-      propertyPath: _columns
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5895289914390127647, guid: 7bb532c76429800449d10bdf64749a4c,
-        type: 3}
-      propertyPath: _cellSize
-      value: 0.2
+      propertyPath: _testTimer
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

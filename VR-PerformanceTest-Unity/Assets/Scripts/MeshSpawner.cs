@@ -1,50 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 
 public class MeshSpawner : MonoBehaviour
 {
-    [SerializeField] int _columns = 20;
-    [SerializeField] int _rows = 15;
-    [SerializeField] float _cellSize = -5;
-    [SerializeField] float _scale;
-    [SerializeField] Vector3 _origin;
-
-    [SerializeField] Mesh _meshToSpawn;
-    [SerializeField] Material _material;
-    private GridXY<GameObject> _grid;
+    Vector3 _origin;
+    GridXY<GameObject> _grid;
+    [SerializeField] List<GridParametersSO> _parameters;
+    [SerializeField] float _testTimer;
 
     private void Awake()
     {
         _origin = transform.position;
-        _grid = new GridXY<GameObject>(_columns, _rows, _cellSize, _origin, (GridXY<GameObject> g, int x, int z) => createTemplateGameObject());
-        generateGridVisual();
+        StartCoroutine(spawnFromList());
+        
     }
-
-    private void generateGridVisual()
+    private void generateGridVisual(int columns, int rows)
     {
-        for (int x = 0; x < _columns; x++)
+        for (int x = 0; x < columns; x++)
         {
-            for(int y = 0; y < _rows; y++)
+            for (int y = 0; y < rows; y++)
             {
                 GameObject temp = _grid.GetCellContent(x, y);
                 temp.transform.localPosition = _grid.GetCellPositionInWorld(x, y);
                 temp.transform.parent = this.transform;
-                //Instantiate(_grid.GetCellContent(x, y), _grid.GetCellPositionInWorld(x, y), Quaternion.identity, transform);
-                
             }
         }
     }
-
-    private GameObject createTemplateGameObject()
+    private GameObject createTemplateGameObject(Material material, Mesh mesh, float scale)
     {
         GameObject newGameObject = new GameObject("TestVisual");
         MeshFilter tempFilter = newGameObject.AddComponent<MeshFilter>();
         MeshRenderer tempRenderer = newGameObject.AddComponent<MeshRenderer>();
-        tempRenderer.material = _material;
-        tempFilter.mesh = _meshToSpawn;
-        newGameObject.transform.localScale = new Vector3(_scale, _scale, _scale);
+        tempRenderer.material = material;
+        tempFilter.mesh = mesh;
+        newGameObject.transform.localScale = new Vector3(scale, scale, scale);
         return newGameObject;
     }
+    private void execute(int columns, int rows, float cellSize, float scale, Vector3 origin, Material material, Mesh mesh)
+    {
+        _grid = new GridXY<GameObject>(columns, rows, cellSize, origin, (GridXY<GameObject> g, int x, int z) => createTemplateGameObject(material, mesh, scale));
+        generateGridVisual(columns, rows);
+    }
+    private void clear()
+    {
+        for (int i = transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+    }
 
+    IEnumerator spawnFromList()
+    {
+        foreach (GridParametersSO param in _parameters)
+        {
+            execute(param.columns, param.rows, param.cellSize, param.objectSize, _origin, param.material, param.meshToSpawn);
+            yield return new WaitForSeconds(_testTimer);
+            clear();
+        } 
+    }
 }
