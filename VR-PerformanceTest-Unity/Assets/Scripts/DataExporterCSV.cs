@@ -5,13 +5,13 @@ using System.IO;
 
 public class DataExporterCSV : MonoBehaviour
 {
-    public string filename = "UnityPerformanceReport";
-    private static string _filepath;
+    public static string filename = "UnityPerformanceReport";
+    private static string _filepath ="";
 
     private void Start()
     {
         _filepath = GetFilePath();
-        //Debug.Log(_filepath);
+        Debug.Log(GetFilePath());
         generateLabels();
     }
 
@@ -27,7 +27,7 @@ public class DataExporterCSV : MonoBehaviour
 
     public static void ExportResults(int objNumber)
     {
-        TextWriter writer = new StreamWriter(_filepath, true);
+        TextWriter writer = new StreamWriter(GetFilePath(), true);
         writer.WriteLine(objNumber.ToString()+","+(960*objNumber).ToString());
         writer.Close();
         Debug.Log("Line written.");
@@ -35,11 +35,11 @@ public class DataExporterCSV : MonoBehaviour
 
     private void generateLabels()
     {
-        TextWriter writer = new StreamWriter(_filepath, false);
+        TextWriter writer = new StreamWriter(GetFilePath(), false);
         writer.WriteLine("Objects, Triangles, Av. Frame Rate, CPU Usage, GPU Usage, RAM usage");
         writer.Close();
     }
-    private string GetFilePath()
+    private static string GetFilePath()
     {
         return Application.persistentDataPath + "/" + filename + ".csv";
         //return Application.dataPath + "/" + filename + ".csv";

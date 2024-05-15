@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b3e0f6ccea3a5438052078c2444788, type: 3}
   m_Name: grid param 3
   m_EditorClassIdentifier: 
-  rows: 40
-  columns: 1
+  rows: 1
+  columns: 40
   cellSize: 0.2
-  objectSize: 0.1
-  meshToSpawn: {fileID: 1075382040968209164, guid: 81ed0e3c951267f428324b85ff87c958,
+  objectSize: 10
+  meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
     type: 3}
   material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}
