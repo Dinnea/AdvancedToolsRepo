@@ -56,8 +56,11 @@ public class MeshSpawner : MonoBehaviour
         foreach (GridParametersSO param in _parameters)
         {
             execute(param.columns, param.rows, param.cellSize, param.objectSize, _origin, param.material, param.meshToSpawn);
+            DataExporterCSV.ExportResults(param.columns * param.rows);
             yield return new WaitForSeconds(_testTimer);
             clear();
         } 
     }
+
+
 }
