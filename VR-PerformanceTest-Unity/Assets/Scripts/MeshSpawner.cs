@@ -9,12 +9,17 @@ public class MeshSpawner : MonoBehaviour
     GridXY<GameObject> _grid;
     [SerializeField] List<GridParametersSO> _parameters;
     [SerializeField] float _testTimer;
+    [SerializeField] Transform _meshContainer;
 
     private void Awake()
     {
         _origin = transform.position;
-        StartCoroutine(spawnFromList());
-        
+        //StartCoroutine(spawnFromList());        
+    }
+
+    public List<GridParametersSO> GetParameterList()
+    {
+        return _parameters;
     }
     private void generateGridVisual(int columns, int rows)
     {
@@ -24,7 +29,7 @@ public class MeshSpawner : MonoBehaviour
             {
                 GameObject temp = _grid.GetCellContent(x, y);
                 temp.transform.localPosition = _grid.GetCellPositionInWorld(x, y);
-                temp.transform.parent = this.transform;
+                temp.transform.parent = _meshContainer;
             }
         }
     }
@@ -38,10 +43,10 @@ public class MeshSpawner : MonoBehaviour
         newGameObject.transform.localScale = new Vector3(scale, scale, scale);
         return newGameObject;
     }
-    private void execute(int columns, int rows, float cellSize, float scale, Vector3 origin, Material material, Mesh mesh)
+    private void execute(GridParametersSO param)
     {
-        _grid = new GridXY<GameObject>(columns, rows, cellSize, origin, (GridXY<GameObject> g, int x, int z) => createTemplateGameObject(material, mesh, scale));
-        generateGridVisual(columns, rows);
+        _grid = new GridXY<GameObject>(param.columns, param.rows, param.cellSize, _origin, (GridXY<GameObject> g, int x, int z) => createTemplateGameObject(param.material, param.meshToSpawn, param.objectSize));
+        generateGridVisual(param.columns, param.rows);
     }
     private void clear()
     {
@@ -55,8 +60,9 @@ public class MeshSpawner : MonoBehaviour
     {
         foreach (GridParametersSO param in _parameters)
         {
-            execute(param.columns, param.rows, param.cellSize, param.objectSize, _origin, param.material, param.meshToSpawn);
+            execute(param);
             DataExporterCSV.ExportResults(param.columns * param.rows);
+            FPSCounter.OverTimeAverageFPS(_testTimer);
             yield return new WaitForSeconds(_testTimer);
             clear();
         } 

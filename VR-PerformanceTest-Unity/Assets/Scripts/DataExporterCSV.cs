@@ -30,7 +30,7 @@ public class DataExporterCSV : MonoBehaviour
         TextWriter writer = new StreamWriter(GetFilePath(), true);
         writer.WriteLine(objNumber.ToString()+","+(960*objNumber).ToString());
         writer.Close();
-        Debug.Log("Line written.");
+        //Debug.Log("Line written.");
     }
 
     private void generateLabels()

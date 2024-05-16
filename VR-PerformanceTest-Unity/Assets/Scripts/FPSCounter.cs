@@ -28,4 +28,23 @@ public class FPSCounter : MonoBehaviour
             _timer = Time.unscaledTime + _fpsTimer;
         }
     }
+
+
+    public static float OverTimeAverageFPS(float testTime)
+    {
+        float timer = 1;
+        float fps = 0;
+        for (int i = 0; i<testTime; i++)
+        {
+            if(Time.unscaledTime > timer)
+            {
+                fps += (int)(1f / Time.unscaledDeltaTime);
+                timer = Time.unscaledTime + 1;
+                //Debug.Log("Timed.");
+                //Debug.Log
+            }
+        }
+        //Debug.Log(fps/testTime);
+        return fps/testTime;
+    }
 }
