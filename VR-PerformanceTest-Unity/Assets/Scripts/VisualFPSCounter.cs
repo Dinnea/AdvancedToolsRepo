@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 [RequireComponent (typeof(TextMeshProUGUI))]
-public class FPSCounter : MonoBehaviour
+public class VisualFPSCounter : MonoBehaviour
 {
     TextMeshProUGUI _fpsCounterText;
     [SerializeField] float _fpsTimer = 1;

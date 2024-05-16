@@ -8,7 +8,6 @@ public class MeshSpawner : MonoBehaviour
     Vector3 _origin;
     GridXY<GameObject> _grid;
     [SerializeField] List<GridParametersSO> _parameters;
-    [SerializeField] float _testTimer;
     [SerializeField] Transform _meshContainer;
 
     private void Awake()
@@ -43,8 +42,9 @@ public class MeshSpawner : MonoBehaviour
         newGameObject.transform.localScale = new Vector3(scale, scale, scale);
         return newGameObject;
     }
-    private void execute(GridParametersSO param)
+    public void Spawn(GridParametersSO param)
     {
+        clear();
         _grid = new GridXY<GameObject>(param.columns, param.rows, param.cellSize, _origin, (GridXY<GameObject> g, int x, int z) => createTemplateGameObject(param.material, param.meshToSpawn, param.objectSize));
         generateGridVisual(param.columns, param.rows);
     }
@@ -56,17 +56,17 @@ public class MeshSpawner : MonoBehaviour
         }
     }
 
-    IEnumerator spawnFromList()
-    {
-        foreach (GridParametersSO param in _parameters)
-        {
-            execute(param);
-            DataExporterCSV.ExportResults(param.columns * param.rows);
-            FPSCounter.OverTimeAverageFPS(_testTimer);
-            yield return new WaitForSeconds(_testTimer);
-            clear();
-        } 
-    }
+    //IEnumerator spawnFromList()
+    //{
+    //    foreach (GridParametersSO param in _parameters)
+    //    {
+    //        Execute(param);
+    //        DataExporterCSV.ExportResults(param.columns * param.rows);
+    //        VisualFPSCounter.OverTimeAverageFPS(_testTimer);
+    //        yield return new WaitForSeconds(_testTimer);
+    //        clear();
+    //    } 
+    //}
 
 
 }
