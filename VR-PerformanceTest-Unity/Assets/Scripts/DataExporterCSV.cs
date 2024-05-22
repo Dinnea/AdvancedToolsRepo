@@ -25,10 +25,10 @@ public class DataExporterCSV : MonoBehaviour
         writer.Close();
     }
 
-    public static void ExportResults(int objNumber)
+    public static void ExportResults(int objNumber, float fps)
     {
         TextWriter writer = new StreamWriter(GetFilePath(), true);
-        writer.WriteLine(objNumber.ToString()+","+(960*objNumber).ToString());
+        writer.WriteLine(objNumber.ToString()+","+(960*objNumber).ToString() +"," +fps.ToString());
         writer.Close();
         //Debug.Log("Line written.");
     }
