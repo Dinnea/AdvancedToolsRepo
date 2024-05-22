@@ -17,8 +17,8 @@ public class TestRunner : MonoBehaviour
     {
        parameters=_spawner.GetParameterList();
         _fpsLogger = GetComponent<FPSLogger>();
-       startTest();
-        
+
+        StartCoroutine(runTest(parameters[_currentTest]));
     }
 
     private void startTest()
@@ -56,12 +56,15 @@ public class TestRunner : MonoBehaviour
         yield return new WaitForSeconds(_testDuration);
         _fpsLogger.StopRecording();
         UnityEngine.Debug.Log(_fpsLogger.GetAverageFPS());
+        DataExporterCSV.ExportResults(objCount, _fpsLogger.GetAverageFPS());
         //CPU usage
         //Profiler.BeginSample()
 
         //gpu usage
         //ram usage
 
-
+        _currentTest++;
+        if(_currentTest<parameters.Count) StartCoroutine(runTest(parameters[_currentTest]));
+        else Application.Quit();
     }
 }
