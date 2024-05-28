@@ -8,7 +8,7 @@ public class TestRunner : MonoBehaviour
 {
     [SerializeField] MeshSpawner _spawner;
     [SerializeField] float _testDuration;
-    List<GridParametersSO> parameters;
+    List<TestParam> parameters;
     FPSLogger _fpsLogger;
     int _currentTest = 0;
 
@@ -23,7 +23,7 @@ public class TestRunner : MonoBehaviour
 
     private void startTest()
     {
-        GridParametersSO currentParam = parameters[_currentTest];
+        TestParam currentParam = parameters[_currentTest];
         _spawner.Spawn(currentParam);
         //Data needed:
         //Obj count
@@ -41,7 +41,7 @@ public class TestRunner : MonoBehaviour
 
 
     }
-    private IEnumerator runTest(GridParametersSO currentParam)
+    private IEnumerator runTest(TestParam currentParam)
     {
         _spawner.Spawn(currentParam);
         yield return new WaitForSeconds(0.5f);

@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName ="grid param", menuName ="GridParameter")]
-public class GridParametersSO : ScriptableObject
+[System.Serializable]
+public class TestParam
 {
     public int rows;
     public int columns;

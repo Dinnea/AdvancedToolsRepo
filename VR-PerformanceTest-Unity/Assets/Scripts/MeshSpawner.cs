@@ -7,8 +7,9 @@ public class MeshSpawner : MonoBehaviour
 {
     Vector3 _origin;
     GridXY<GameObject> _grid;
-    [SerializeField] List<GridParametersSO> _parameters;
+    //[SerializeField] List<GridParametersSO> _parameters;
     [SerializeField] Transform _meshContainer;
+    [SerializeField] List<TestParam> _parameters;
 
     private void Awake()
     {
@@ -16,7 +17,7 @@ public class MeshSpawner : MonoBehaviour
         //StartCoroutine(spawnFromList());        
     }
 
-    public List<GridParametersSO> GetParameterList()
+    public List<TestParam> GetParameterList()
     {
         return _parameters;
     }
@@ -42,7 +43,7 @@ public class MeshSpawner : MonoBehaviour
         newGameObject.transform.localScale = new Vector3(scale, scale, scale);
         return newGameObject;
     }
-    public void Spawn(GridParametersSO param)
+    public void Spawn(TestParam param)
     {
         clear();
         _grid = new GridXY<GameObject>(param.columns, param.rows, param.cellSize, _origin, (GridXY<GameObject> g, int x, int z) => createTemplateGameObject(param.material, param.meshToSpawn, param.objectSize));
