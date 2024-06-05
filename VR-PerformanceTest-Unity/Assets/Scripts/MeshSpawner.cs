@@ -51,9 +51,9 @@ public class MeshSpawner : MonoBehaviour
     }
     private void clear()
     {
-        for (int i = transform.childCount - 1; i >= 0; i--)
+        for (int i = _meshContainer.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(transform.GetChild(i).gameObject);
+            Destroy(_meshContainer.transform.GetChild(i).gameObject);
         }
     }
 
