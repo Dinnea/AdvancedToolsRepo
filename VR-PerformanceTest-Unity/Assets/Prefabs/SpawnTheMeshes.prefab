@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _meshContainer: {fileID: 0}
   _parameters:
-  - rows: 10
-    columns: 1
+  - rows: 0
+    columns: 0
     cellSize: 0.2
     objectSize: 10
     meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
@@ -60,50 +60,71 @@ MonoBehaviour:
     meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
       type: 3}
     material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}
-  - rows: 25
-    columns: 10
+  - rows: 10
+    columns: 20
     cellSize: 0.2
     objectSize: 10
     meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
       type: 3}
     material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}
-  - rows: 50
-    columns: 10
-    cellSize: 0.2
-    objectSize: 10
-    meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
-      type: 3}
-    material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}
-  - rows: 50
+  - rows: 10
     columns: 30
     cellSize: 0.2
     objectSize: 10
     meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
       type: 3}
     material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}
-  - rows: 50
+  - rows: 10
     columns: 40
     cellSize: 0.2
     objectSize: 10
     meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
       type: 3}
     material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}
-  - rows: 50
-    columns: 60
+  - rows: 10
+    columns: 50
+    cellSize: 0.2
+    objectSize: 10
+    meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
+      type: 3}
+    material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}
+  - rows: 20
+    columns: 50
+    cellSize: 0.2
+    objectSize: 10
+    meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
+      type: 3}
+    material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}
+  - rows: 30
+    columns: 50
+    cellSize: 0.2
+    objectSize: 10
+    meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
+      type: 3}
+    material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}
+  - rows: 40
+    columns: 50
     cellSize: 0.2
     objectSize: 10
     meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
       type: 3}
     material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}
   - rows: 50
-    columns: 80
+    columns: 50
     cellSize: 0.2
     objectSize: 10
     meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
       type: 3}
     material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}
-  - rows: 50
-    columns: 100
+  - rows: 60
+    columns: 50
+    cellSize: 0.2
+    objectSize: 10
+    meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
+      type: 3}
+    material: {fileID: 2100000, guid: 7f473e8181b7e3c4e96af9803fd5c3b1, type: 2}
+  - rows: 70
+    columns: 50
     cellSize: 0.2
     objectSize: 10
     meshToSpawn: {fileID: 1075382040968209164, guid: 62db8605d09677a44ac5e2254e540879,
