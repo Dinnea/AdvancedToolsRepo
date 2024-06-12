@@ -231,6 +231,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7754758bae8c1ac46bebc24c3ec2b769, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &575237728 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4829474195364121018, guid: 7bb532c76429800449d10bdf64749a4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8295056507095159011}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &994073534
 GameObject:
   m_ObjectHideFlags: 0
@@ -2577,7 +2583,7 @@ PrefabInstance:
     - target: {fileID: 4829474195364121018, guid: 7bb532c76429800449d10bdf64749a4c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8824
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4829474195364121018, guid: 7bb532c76429800449d10bdf64749a4c,
         type: 3}
@@ -2628,7 +2634,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _meshContainer
       value: 
-      objectReference: {fileID: 1240476132}
+      objectReference: {fileID: 575237728}
     - target: {fileID: 5895289914390127647, guid: 7bb532c76429800449d10bdf64749a4c,
         type: 3}
       propertyPath: _parameters1.Array.size
