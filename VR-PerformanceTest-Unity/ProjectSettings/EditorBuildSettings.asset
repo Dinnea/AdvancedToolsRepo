@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OpenVR-BasicEnvironment.unity
     guid: 9d9c8689d722b1a48a7c72db72d46c35
+  - enabled: 0
+    path: Assets/Scenes/smallerTest.unity
+    guid: 7fced6d273fe58243a7b4038e31593a3
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 50f3e921cc1c4fe4087856ac4795a4d5,
       type: 2}
